@@ -10,7 +10,10 @@
 }
 
 .makeup li {
-  border: 1px solid #ccc;
+  border: 3px solid #ccc;
   margin: 0.5rem 0;
   padding: 0.5rem;
+  font-weight: bold;
+  color: hotpink;
+  font-size: 25px;
 }
