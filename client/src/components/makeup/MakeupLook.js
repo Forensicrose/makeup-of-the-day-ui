@@ -7,10 +7,13 @@ const MakeupLook = (props) => {
     <Card className={classes.makeup}>
       <ul>
         {props.makeup.map((item) => (
-          <li>
-            {item.foundation} {item.eyeshadow} {item.eyeliner} {item.blush}
-            {item.lipstick}
-          </li>
+          <div key={item.id}>
+            <li> {item.foundation} </li>
+            <li>{item.eyeshadow}</li>
+            <li>{item.eyeliner} </li>
+            <li>{item.blush}</li>
+            <li> {item.lipstick}</li>
+          </div>
         ))}
       </ul>
     </Card>

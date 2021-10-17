@@ -22,7 +22,7 @@ const Addmakeup = (props) => {
       return;
     }
 
-    console.log(
+    props.onAddMakeup(
       enteredFoundation,
       enteredEyeshadow,
       enteredEyeliner,
