@@ -12,6 +12,28 @@ const Addmakeup = (props) => {
 
   const addMakeupHandler = (event) => {
     event.preventDefault();
+    if (
+      enteredFoundation.trim().length === 0 &&
+      enteredEyeshadow.trim().length === 0 &&
+      enteredEyeliner.trim().length === 0 &&
+      enteredBlush.trim().length === 0 &&
+      enteredLipstick.trim().length === 0
+    ) {
+      return;
+    }
+
+    console.log(
+      enteredFoundation,
+      enteredEyeshadow,
+      enteredEyeliner,
+      enteredBlush,
+      enteredLipstick
+    );
+    setEnteredFoundation('');
+    setEnteredEyeshadow('');
+    setEnteredEyeliner('');
+    setEnteredBlush('');
+    setEnteredLipstick('');
   };
 
   const foundationChangeHandler = (event) => {
@@ -37,16 +59,41 @@ const Addmakeup = (props) => {
     <Card className={classes.input}>
       <form onSubmit={addMakeupHandler}>
         <label htmlFor='Foundation'>Foundation</label>
-        <input id='Foundation' type='text' onChange={foundationChangeHandler} />
+        <input
+          id='Foundation'
+          type='text'
+          value={enteredFoundation}
+          onChange={foundationChangeHandler}
+        />
         <label htmlFor='Eyeshadow'>Eyeshadow</label>
-        <input id='Eyeshadow' type='text' onChange={eyeshadowChangeHandler} />
+        <input
+          id='Eyeshadow'
+          type='text'
+          value={enteredEyeshadow}
+          onChange={eyeshadowChangeHandler}
+        />
         <label htmlFor='Eyeliner'>Eyeliner</label>
-        <input id='Eyeliner' type='text' onChange={eyelinerChangeHandler} />
+        <input
+          id='Eyeliner'
+          type='text'
+          value={enteredEyeliner}
+          onChange={eyelinerChangeHandler}
+        />
         <label htmlFor='Blush'>Blush</label>
-        <input id='Blush' type='text' onChange={blushChangeHandler} />
+        <input
+          id='Blush'
+          type='text'
+          value={enteredBlush}
+          onChange={blushChangeHandler}
+        />
         <label htmlFor='Lipstick'>Lipstick</label>
-        <input id='Lipstick' type='text' onChange={lipstickChangeHandler} />
-        <Button type='submit'>Add Makeup</Button>
+        <input
+          id='Lipstick'
+          type='text'
+          value={enteredLipstick}
+          onChange={lipstickChangeHandler}
+        />
+        <Button type='submit'>Get the Look!</Button>
       </form>
     </Card>
   );
