@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Card from '../UI/Card';
+import Card from '../components/UI/Card';
 import classes from './Addmakeup.module.css';
-import Button from '../UI/Button';
+import Button from '../components/UI/Button';
 
 const Addmakeup = (props) => {
   const [enteredFoundation, setEnteredFoundation] = useState('');

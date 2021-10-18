@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from '../UI/Card';
+import Card from '../components/UI/Card';
 import classes from './MakeupLook.module.css';
 
 const MakeupLook = (props) => {

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import './index.css';
-import Addmakeup from './components/makeup/Addmakeup';
-import MakeupLook from './components/makeup/MakeupLook';
+import Addmakeup from './pages/Addmakeup';
+import MakeupLook from './pages/MakeupLook';
 
 function App() {
   const [makeupLook, setMakeupLook] = useState([]);
@@ -16,17 +17,21 @@ function App() {
           eyeliner: eLiner,
           blush: blush,
           lipstick: lStick,
-          id: Math.random().toString()
+          id: Math.random().toString(),
         },
       ];
     });
   };
 
   return (
-    <div>
-      <Addmakeup onAddMakeup={addMakeupHandler} />
-      <MakeupLook makeup={makeupLook} />
-    </div>
+    <Switch>
+      <Route path="/makeup">
+        <Addmakeup onAddMakeup={addMakeupHandler} />
+      </Route>
+      <Route path="look">
+        <MakeupLook makeup={makeupLook} />
+      </Route>
+    </Switch>
   );
 }
 
