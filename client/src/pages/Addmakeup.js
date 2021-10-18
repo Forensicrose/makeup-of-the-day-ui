@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import Card from '../components/UI/Card';
-import classes from './Addmakeup.module.css';
 import Button from '../components/UI/Button';
+import classes from './Addmakeup.module.css';
 
 const Addmakeup = (props) => {
+  const history = useHistory();
   const [enteredFoundation, setEnteredFoundation] = useState('');
   const [enteredEyeshadow, setEnteredEyeshadow] = useState('');
   const [enteredEyeliner, setEnteredEyeliner] = useState('');
@@ -12,6 +14,10 @@ const Addmakeup = (props) => {
 
   const addMakeupHandler = (event) => {
     event.preventDefault();
+     
+            history.push('./look');
+          
+
     if (
       enteredFoundation.trim().length === 0 &&
       enteredEyeshadow.trim().length === 0 &&
@@ -93,7 +99,12 @@ const Addmakeup = (props) => {
           value={enteredLipstick}
           onChange={lipstickChangeHandler}
         />
-        <Button type='submit'>Get the Look!</Button>
+        <Button
+        
+          type='submit'
+        >
+          Get the Look!
+        </Button>
       </form>
     </Card>
   );
