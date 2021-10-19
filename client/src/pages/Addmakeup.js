@@ -64,6 +64,8 @@ const Addmakeup = (props) => {
       )}
       <Card className={classes.input}>
         <form onSubmit={addMakeupHandler}>
+          <label htmlFor='Foundation'>Foundation</label>
+
           <select
             name='Foundation'
             id='Foundation'
@@ -72,16 +74,14 @@ const Addmakeup = (props) => {
               setEnteredFoundation(event.target.value);
             }}
           >
-            <option value='' disabled>
-              Select a foundation
-            </option>
+            <option value='' disabled></option>
             <option value='Fenty Beauty Soft Matte'>Fenty Beauty</option>
             <option value='Huda Beauty #Faux Filter'>Huda Beauty</option>
             <option value='Flesh Beauty'>Flesh Beauty</option>
             <option value='Too Faced Beauty'>Too Faced Beauty</option>
             <option value='Cover FX Beauty'>Cover FX Beauty</option>
           </select>
-
+          <label htmlFor='Eyeshadow'>Eyeshadow</label>
           <select
             name='Eyeshadow'
             id='Eyeshadow'
@@ -90,16 +90,14 @@ const Addmakeup = (props) => {
               setEnteredEyeshadow(event.target.value);
             }}
           >
-            <option value='' disabled>
-              Select an eyeshadow
-            </option>
+            <option value='' disabled></option>
             <option value='Naked'>Naked</option>
             <option value='Norvina'>Norvina</option>
             <option value='Tarlette'>Tarlette</option>
             <option value='Huda'>Huda</option>
             <option value='Nars'>Nars</option>
           </select>
-
+          <label htmlFor='Eyeliner'>Eyeliner</label>
           <select
             name='Eyeliner'
             id='Eyeliner'
@@ -108,16 +106,14 @@ const Addmakeup = (props) => {
               setEnteredEyeliner(event.target.value);
             }}
           >
-            <option value='' disabled>
-              Select an eyeliner
-            </option>
+            <option value='' disabled></option>
             <option value='Marc Jacobs'>Marc Jacobs</option>
             <option value='NYX'>NYX</option>
             <option value='Maybelline'>Maybelline</option>
             <option value='Stila'>Stila</option>
             <option value='Lancome'>Lancome Drama</option>
           </select>
-
+          <label htmlFor='Blush'>Blush</label>
           <select
             name='Blush'
             id='Blush'
@@ -126,16 +122,14 @@ const Addmakeup = (props) => {
               setEnteredBlush(event.target.value);
             }}
           >
-            <option value='' disabled>
-              Select a blush
-            </option>
+            <option value='' disabled></option>
             <option value='Milani'>Milani</option>
             <option value='Morpe'>Morpe</option>
             <option value='NARS'>NARS</option>
             <option value='Nudestix'>Nudestix</option>
             <option value='Fenty'>Fenty</option>
           </select>
-
+          <label htmlFor='Lipstick'>Lipstick</label>
           <select
             name='Lipstick'
             id='Lipstick'
@@ -144,9 +138,7 @@ const Addmakeup = (props) => {
               setEnteredLipstick(event.target.value);
             }}
           >
-            <option value='' disabled>
-              Select a lipstick
-            </option>
+            <option value='' disabled></option>
             <option value='Dior'>Dior</option>
             <option value='IT'>IT</option>
             <option value='Bobbi Brown'>Bobbi Brown</option>
@@ -159,6 +151,5 @@ const Addmakeup = (props) => {
     </>
   );
 };
-
 
 export default Addmakeup;

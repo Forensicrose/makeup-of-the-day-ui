@@ -4,15 +4,4 @@
   background: grey;
   color: white;
   padding: 0.25rem 1rem;
-  cursor: pointer;
-}
-
-.button:hover,
-.button:active {
-  background: grey;
-  border-color: grey;
-}
-
-.button:focus {
-  outline: none;
 }
