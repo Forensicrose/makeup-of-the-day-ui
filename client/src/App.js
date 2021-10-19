@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Route, Switch, Redirect} from 'react-router-dom';
-import Addmakeup from './pages/Addmakeup';
+import AddMakeup from './pages/Addmakeup';
 import MakeupLook from './pages/MakeupLook';
 import './index.css';
 
@@ -28,12 +28,13 @@ function App() {
   };
 
   return (
+    
     <Switch>
       <Route path='/' exact>
         <Redirect to='/makeup'></Redirect>
       </Route>
       <Route path='/makeup'>
-        <Addmakeup onAddMakeup={addMakeupHandler} />
+        <AddMakeup onAddMakeup={addMakeupHandler} />
       </Route>
       <Route path='/look'>
         <MakeupLook makeup={makeupLook} />

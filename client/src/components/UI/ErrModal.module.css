@@ -1,4 +1,4 @@
-.backdrop {
+.background {
   position: fixed;
   top: 0;
   left: 0;
@@ -18,7 +18,7 @@
 }
 
 .header {
-  background: #4f005f;
+  background: lightgray;
   padding: 1rem;
 }
 

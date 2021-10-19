@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import Title from '../components/Title/Title';
+import ErrModal from '../components/UI/ErrModal';
 import Card from '../components/UI/Card';
 import Button from '../components/UI/Button';
-import classes from './Addmakeup.module.css';
+import classes from '../pages/Addmakeup.module.css';
 
 const Addmakeup = (props) => {
   const history = useHistory();
@@ -11,20 +13,23 @@ const Addmakeup = (props) => {
   const [enteredEyeliner, setEnteredEyeliner] = useState('');
   const [enteredBlush, setEnteredBlush] = useState('');
   const [enteredLipstick, setEnteredLipstick] = useState('');
+  const [error, setError] = useState();
 
   const addMakeupHandler = (event) => {
     event.preventDefault();
-     
-            history.push('./look');
-          
 
     if (
-      enteredFoundation.trim().length === 0 &&
-      enteredEyeshadow.trim().length === 0 &&
-      enteredEyeliner.trim().length === 0 &&
-      enteredBlush.trim().length === 0 &&
-      enteredLipstick.trim().length === 0
+      enteredFoundation.length === 0 ||
+      enteredEyeshadow.length === 0 ||
+      enteredEyeliner.length === 0 ||
+      enteredBlush.length === 0 ||
+      enteredLipstick.length === 0
     ) {
+      setError({
+        title: 'Invalid input!',
+        message: 'Please complete entire form!',
+      });
+
       return;
     }
 
@@ -40,74 +45,120 @@ const Addmakeup = (props) => {
     setEnteredEyeliner('');
     setEnteredBlush('');
     setEnteredLipstick('');
+    history.push('./look');
   };
 
-  const foundationChangeHandler = (event) => {
-    setEnteredFoundation(event.target.value);
+  const ErrHandler = () => {
+    setError(null);
   };
 
-  const eyeshadowChangeHandler = (event) => {
-    setEnteredEyeshadow(event.target.value);
-  };
-
-  const eyelinerChangeHandler = (event) => {
-    setEnteredEyeliner(event.target.value);
-  };
-
-  const blushChangeHandler = (event) => {
-    setEnteredBlush(event.target.value);
-  };
-
-  const lipstickChangeHandler = (event) => {
-    setEnteredLipstick(event.target.value);
-  };
   return (
-    <Card className={classes.input}>
-      <form onSubmit={addMakeupHandler}>
-        <label htmlFor='Foundation'>Foundation</label>
-        <input
-          id='Foundation'
-          type='text'
-          value={enteredFoundation}
-          onChange={foundationChangeHandler}
+    <>
+      <Title title={'Get the look!'} />
+      {error && (
+        <ErrModal
+          title={error.title}
+          message={error.message}
+          onHandleErr={ErrHandler}
         />
-        <label htmlFor='Eyeshadow'>Eyeshadow</label>
-        <input
-          id='Eyeshadow'
-          type='text'
-          value={enteredEyeshadow}
-          onChange={eyeshadowChangeHandler}
-        />
-        <label htmlFor='Eyeliner'>Eyeliner</label>
-        <input
-          id='Eyeliner'
-          type='text'
-          value={enteredEyeliner}
-          onChange={eyelinerChangeHandler}
-        />
-        <label htmlFor='Blush'>Blush</label>
-        <input
-          id='Blush'
-          type='text'
-          value={enteredBlush}
-          onChange={blushChangeHandler}
-        />
-        <label htmlFor='Lipstick'>Lipstick</label>
-        <input
-          id='Lipstick'
-          type='text'
-          value={enteredLipstick}
-          onChange={lipstickChangeHandler}
-        />
-        <Button
-        
-          type='submit'
-        >
-          Get the Look!
-        </Button>
-      </form>
-    </Card>
+      )}
+      <Card className={classes.input}>
+        <form onSubmit={addMakeupHandler}>
+          <select
+            name='Foundation'
+            id='Foundation'
+            value={enteredFoundation}
+            onChange={(event) => {
+              setEnteredFoundation(event.target.value);
+            }}
+          >
+            <option value='' disabled>
+              Select a foundation
+            </option>
+            <option value='Fenty Beauty Soft Matte'>Fenty Beauty</option>
+            <option value='Huda Beauty #Faux Filter'>Huda Beauty</option>
+            <option value='Flesh Beauty'>Flesh Beauty</option>
+            <option value='Too Faced Beauty'>Too Faced Beauty</option>
+            <option value='Cover FX Beauty'>Cover FX Beauty</option>
+          </select>
+
+          <select
+            name='Eyeshadow'
+            id='Eyeshadow'
+            value={enteredEyeshadow}
+            onChange={(event) => {
+              setEnteredEyeshadow(event.target.value);
+            }}
+          >
+            <option value='' disabled>
+              Select an eyeshadow
+            </option>
+            <option value='Naked'>Naked</option>
+            <option value='Norvina'>Norvina</option>
+            <option value='Tarlette'>Tarlette</option>
+            <option value='Huda'>Huda</option>
+            <option value='Nars'>Nars</option>
+          </select>
+
+          <select
+            name='Eyeliner'
+            id='Eyeliner'
+            value={enteredEyeliner}
+            onChange={(event) => {
+              setEnteredEyeliner(event.target.value);
+            }}
+          >
+            <option value='' disabled>
+              Select an eyeliner
+            </option>
+            <option value='Marc Jacobs'>Marc Jacobs</option>
+            <option value='NYX'>NYX</option>
+            <option value='Maybelline'>Maybelline</option>
+            <option value='Stila'>Stila</option>
+            <option value='Lancome'>Lancome Drama</option>
+          </select>
+
+          <select
+            name='Blush'
+            id='Blush'
+            value={enteredBlush}
+            onChange={(event) => {
+              setEnteredBlush(event.target.value);
+            }}
+          >
+            <option value='' disabled>
+              Select a blush
+            </option>
+            <option value='Milani'>Milani</option>
+            <option value='Morpe'>Morpe</option>
+            <option value='NARS'>NARS</option>
+            <option value='Nudestix'>Nudestix</option>
+            <option value='Fenty'>Fenty</option>
+          </select>
+
+          <select
+            name='Lipstick'
+            id='Lipstick'
+            value={enteredLipstick}
+            onChange={(event) => {
+              setEnteredLipstick(event.target.value);
+            }}
+          >
+            <option value='' disabled>
+              Select a lipstick
+            </option>
+            <option value='Dior'>Dior</option>
+            <option value='IT'>IT</option>
+            <option value='Bobbi Brown'>Bobbi Brown</option>
+            <option value='Revlon'>Revlon</option>
+            <option value='Chanel'>Chanel</option>
+          </select>
+          <Button type='submit'>Get the Look!</Button>
+        </form>
+      </Card>
+    </>
   );
 };
+
 
 export default Addmakeup;
