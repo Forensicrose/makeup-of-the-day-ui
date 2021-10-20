@@ -1,0 +1,9 @@
+.card {
+  background-image: radial-gradient(pink 20%, transparent 20%),
+    radial-gradient(#fafafa 20%, transparent 20%);
+  background-color: #ffe4e1;
+  background-position: 0 0, 50px 50px;
+  background-size: 100px 100px;
+  box-shadow: 0 2px 8px rgb(109, 86, 86);
+  border-radius: 10px;
+}
