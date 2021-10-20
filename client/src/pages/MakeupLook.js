@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from '../components/UI/Card';
-import GoBack from '../components/GoBack/GoBack'
+import GoBack from '../components/GoBack/GoBack';
 import classes from './MakeupLook.module.css';
 import Button from '../components/UI/Button';
 
@@ -19,16 +19,11 @@ const MakeupLook = (props) => {
               <li> {item.lipstick}</li>
             </div>
           ))}
-          <Button
-                type='button'
-                onClick={props.reset}   
-              >
-                Save the look!
-              </Button>
+          <Button type='button' onClick={props.reset}>
+            Save the look!
+          </Button>
         </ul>
-        
       </Card>
-      
     </>
   );
 };
