@@ -17,18 +17,18 @@ const MakeupLook = (props) => {
               <li>{item.eyeliner} </li>
               <li>{item.blush}</li>
               <li> {item.lipstick}</li>
-              <Button
+            </div>
+          ))}
+          <Button
                 type='button'
-                onClick={() => {
-                  alert('Your look has been saved!');
-                }}
+                onClick={props.reset}   
               >
                 Save the look!
               </Button>
-            </div>
-          ))}
         </ul>
+        
       </Card>
+      
     </>
   );
 };

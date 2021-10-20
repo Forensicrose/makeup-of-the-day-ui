@@ -52,6 +52,8 @@ const Addmakeup = (props) => {
     setError(null);
   };
 
+  
+
   return (
     <>
       <Title title={'Get the look!'} />
